@@ -28,7 +28,7 @@ module "mod_custom_roles" {
         not_actions      = []
         not_data_actions = []
       }
-      assignable_scopes = [["${module.mod_management_group.0.management_groups["/providers/Microsoft.Management/managementGroups/platforms"].id}"]] ## This setting is optional. (If not defined current subscription ID is used).
+      assignable_scopes = [data.azurerm_client_config.current.subscription_id] ## This setting is optional. (If not defined current subscription ID is used).
     }
   ]
 }
